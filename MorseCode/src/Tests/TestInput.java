@@ -7,11 +7,9 @@ import org.junit.jupiter.api.Test;
 
 class TestInput {
 
-	
-	
 	@Test
 	void testTextToCodeVerificationUnder940() {
-		String oneWord = "p?neumonoultramicroscopicsilicovolcanoconiosis"; //46 chars long times 20 words = 920 chars.
+		String oneWord = "pneumonoultramicroscopicsilicovolcanoconiosis"; //46 chars long times 20 words = 920 chars.
 		String textString = "";
 		for (int i = 0; i < 20; i++) {
 			textString = oneWord + " " + textString;
@@ -21,9 +19,10 @@ class TestInput {
 		textString = takeInput.toCodeVerification(textString);
 		
 		
-		assertTrue(textString.length() <= 940);
+		assertTrue(textString.length() <= 950);
 		
 	}
+	
 	@Test
 	void testTextToCodeVerificationNotEmpty() {
 		String textString = "";
@@ -31,18 +30,19 @@ class TestInput {
 		TakeInput takeInput = new TakeInput();
 		String returnString = takeInput.toCodeVerification(textString);
 		
-		assertEquals(returnString, null);
+		assertEquals(returnString, "error");
 		
 	}
+	
 	@Test
 	void testTextToCodeOnlyEngLetters() {
 		
 		TakeInput takeInput = new TakeInput();
-		String testString = "åå";
+		String textString = "()";
 		
-		String returnString = takeInput.toCodeVerification(testString);
+		String returnString = takeInput.toCodeVerification(textString);
 		
-		assertEquals(returnString, null);
+		assertEquals(returnString, "error");
 		
 	}
 	

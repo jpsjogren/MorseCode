@@ -1,8 +1,6 @@
 package Program;
 
-import java.util.regex.Pattern;
 import java.util.Scanner;
-import java.util.regex.Matcher;
 
 public class TakeInput {
 
@@ -31,14 +29,30 @@ public class TakeInput {
 	
 	
 	public String toCodeVerification(String textToVerify) {
-		
-		int wrong = 0;
+		String wrong = "error";
+		char[] ch = new char[textToVerify.length()];
+		for (int i = 0; i < textToVerify.length(); i++) { 
+            ch[i] = textToVerify.charAt(i); 
+        } 
+		//Kolla så String inte är tom
 		if (textToVerify.isEmpty()) {
 			
-			return null;
+			return "error";
 		}
 		
-		
+		//Kolla så att det bara är tecken som kan översättas
+		for (int i = 0; i < ch.length; i++) {
+			for (int j = 0; j < letters.length; j++) {
+				if (ch[i] == letters[j]) {
+					wrong = morseLetters[j];
+					break;
+				}
+			}
+			if (wrong.equals("error")) {
+				return "error";
+			}
+		}
 		return textToVerify;
 	}
+	
 }
