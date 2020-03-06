@@ -13,10 +13,10 @@ class TestSplitter {
 	void ReturnNumberOfWords() {
 		Splitter splitter =  new Splitter();
 		String inputString = "hej du din lilla skit";
-		int expectedNumber = 5;
-		int actualNumber = splitter.splitString(inputString);
+		String expectedIndex = "din";
+		String actualIndex = splitter.splitString(inputString);
 		
-		assertEquals(expectedNumber, actualNumber);
+		assertEquals(expectedIndex, actualIndex);
 		
 	}
 	
