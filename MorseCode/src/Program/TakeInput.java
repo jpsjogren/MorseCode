@@ -54,14 +54,12 @@ public class TakeInput {
 		}
 		return textToVerify;
 	}
-	public String toCodeVerification(String textToVerify) {
+	
+	public String toTextVerification(String codeToVerify) {
 		String wrong = "error";
-		char[] ch = new char[textToVerify.length()];
-		for (int i = 0; i < textToVerify.length(); i++) { 
-            ch[i] = textToVerify.charAt(i); 
-        } 
+	
 		//Kolla så String inte är tom
-		if (textToVerify.isEmpty()) {
+		if (codeToVerify.isEmpty()) {
 			
 			return "error";
 		}
@@ -78,6 +76,6 @@ public class TakeInput {
 				return "error";
 			}
 		}
-		return textToVerify;
+		return codeToVerify;
 	}
 }
