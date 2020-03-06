@@ -11,7 +11,7 @@ class TestInput {
 	
 	@Test
 	void testTextToCodeVerificationUnder940() {
-		String oneWord = "e";//"pneumonoultramicroscopicsilicovolcanoconiosis"; //46 chars long times 20 words = 920 chars.
+		String oneWord = "qwq.äew";//"p?neumonoultramicroscopicsilicovolcanoconiosis"; //46 chars long times 20 words = 920 chars.
 		String textString = "";
 		for (int i = 0; i < 20; i++) {
 			textString = oneWord + " " + textString;
@@ -20,7 +20,8 @@ class TestInput {
 		TakeInput takeInput = new TakeInput();
 		textString = takeInput.toCodeVerification(textString);
 		
-		assert textString.length() <= 940;
+		
+		assertTrue(textString.length() < 940);
 		
 	}
 	@Test
