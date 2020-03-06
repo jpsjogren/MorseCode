@@ -8,7 +8,7 @@ public class TakeInput {
 			'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
 			'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0','.',',','?'};
 	
-	String[] morseLetters = {"   ", ".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
+	String[] morseLetters = {"  ", ".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
 			 "....", "..", ".---", "-.-", ".-..", "--", "-.",
 			 "---", ".--.", "--.-", ".-.", "...", "-", "..-",
 			 "...-", ".--", "-..-", "-.--", "--..",
@@ -16,20 +16,25 @@ public class TakeInput {
 			 ".....", "-....", "--...", "---..", "----.",
 			 "-----",".-.-.-","--..--","..--.."};
 	
-	public void takeInput() {
+	public String takeInput() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Skriv in nåt då!");
 		String string = scan.nextLine();
 		string = string.toLowerCase();
 		System.out.println(string);
 		scan.close();
+		return string;
 	
 	}
 	
 	
 	
 	public String toCodeVerification(String textToVerify) {
-		String wrong = "error";
+		String wrong = "error!";
+		String morseCode = "";
+		if (textToVerify.length() >= 500) {
+			return "error!"; 		
+		}
 		char[] ch = new char[textToVerify.length()];
 		for (int i = 0; i < textToVerify.length(); i++) { 
             ch[i] = textToVerify.charAt(i); 
@@ -37,7 +42,7 @@ public class TakeInput {
 		//Kolla så String inte är tom
 		if (textToVerify.isEmpty()) {
 			
-			return "error";
+			return "error!";
 		}
 		
 		//Kolla så att det bara är tecken som kan översättas
@@ -45,37 +50,46 @@ public class TakeInput {
 			for (int j = 0; j < letters.length; j++) {
 				if (ch[i] == letters[j]) {
 					wrong = morseLetters[j];
+					morseCode += morseLetters[j] + " ";
 					break;
 				}
 			}
-			if (wrong.equals("error")) {
-				return "error";
+			if (wrong.equals("error!")) {
+				return "error!";
 			}
 		}
-		return textToVerify;
+		System.out.println(textToVerify.length());
+		return morseCode;
 	}
 	
 	public String toTextVerification(String codeToVerify) {
-		String wrong = "error";
+		String wrong = "error!";
+		String output = "";
+		String[] stringSplit = codeToVerify.split(" ");
+		
+		
 	
 		//Kolla så String inte är tom
 		if (codeToVerify.isEmpty()) {
 			
-			return "error";
+			return "error!";
+		}
+		if (codeToVerify.length() >= 500) {
+			return "error!"; 		
 		}
 		
 		//Kolla så att det bara är tecken som kan översättas
-		for (int i = 0; i < ch.length; i++) {
-			for (int j = 0; j < letters.length; j++) {
-				if (ch[i] == letters[j]) {
-					wrong = morseLetters[j];
-					break;
+		for (int i = 0; i < stringSplit.length; i++) {
+			for (int j = 0; j < morseLetters.length; j++) {
+				if (stringSplit[i].equals(morseLetters[j])) {
+					wrong = letters[j] + "";
+					output += letters[j] + "";
 				}
 			}
-			if (wrong.equals("error")) {
-				return "error";
-			}
 		}
-		return codeToVerify;
+		if (wrong.equals("error!")) {
+			return "error!";
+		}
+		return output;
 	}
 }
