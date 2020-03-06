@@ -33,22 +33,12 @@ public class TakeInput {
 	public String toCodeVerification(String textToVerify) {
 		
 		int wrong = 0;
-		String letterString = new String(letters);
-		CharSequence latinLetters = letterString;
-		
-		//Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
-		//Matcher match = pattern.matcher(textToVerify);
-		//boolean val = match.find();
-		
 		if (textToVerify.isEmpty()) {
 			
 			return null;
 		}
-		else {
-			if (textToVerify.contains(latinLetters)) {
-				return null;
-			}
-		}
+		
+		
 		return textToVerify;
 	}
 }
