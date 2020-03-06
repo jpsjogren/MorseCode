@@ -5,11 +5,10 @@ public class Program {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		TakeInput input = new TakeInput();
+		input.takeInput();
 		
 		
-		for (int i = 0; i < 100; i++) {
-			System.out.println(i + "hello fucking world");
-		}
 	}
 
 }
