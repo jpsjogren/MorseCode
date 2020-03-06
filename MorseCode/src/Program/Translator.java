@@ -14,7 +14,7 @@ public class Translator {
 			 ".....", "-....", "--...", "---..", "----.",
 			 "-----",".-.-.-","--..--","..--.."};
 	
-	
+	/*
 	public String charToMorse(char testInput) {
 		for (int i = 0; i < letters.length; i++) {
 			if (testInput == letters[i]) {
@@ -22,5 +22,9 @@ public class Translator {
 			}
 		}
 		return null;
+	}
+	*/
+	public String morseToEng() {
+		
 	}
 }

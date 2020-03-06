@@ -1,8 +1,14 @@
 package Program;
 
+
 public class Splitter {
 	public String splitString(String toSplit) {
+		
 		String[] str = toSplit.split(" ");
-		return str[2];
+		
+		for (var word : str) {
+			char[] ch = new char[word.length()];
+		}
+		
 	}
 }
