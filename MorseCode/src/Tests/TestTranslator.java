@@ -26,7 +26,6 @@ class TestTranslator {
 		String expectedOutput3 = "..--..";
 		
 		
-		
 		assertEquals(output1, expectedOutput1);
 		assertEquals(output2, expectedOutput2);
 		assertEquals(output3, expectedOutput3);
