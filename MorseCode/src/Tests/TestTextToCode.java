@@ -11,7 +11,7 @@ class TestTextToCode {
 	@Test
 	void testSingleLetter() {
 		
-		String oneLetter = "s"; //46 chars long times 20 words = 920 chars.
+		String oneLetter = "s";
 		String actual;
 		String expected = "... ";
 		
@@ -24,12 +24,12 @@ class TestTextToCode {
 	
 	@Test
 	void testOneWord() {
-		String oneWord = "sos"; //46 chars long times 20 words = 920 chars.
+		String oneWord = "sos"; 
 		String actual;
 		String expected = "... --- ... ";
 		
-		Translate takeInput = new Translate();
-		actual = takeInput.toCodeVerification(oneWord);
+		Translate translate = new Translate();
+		actual = translate.toCodeVerification(oneWord);
 		
 		assertEquals(actual, expected);
 		
@@ -37,12 +37,12 @@ class TestTextToCode {
 	
 	@Test
 	void testOneSentence() {
-		String oneWord = "sos sos"; //46 chars long times 20 words = 920 chars.
+		String oneWord = "sos sos"; 
 		String actual;
 		String expected = "... --- ...    ... --- ... ";
 		
-		Translate takeInput = new Translate();
-		actual = takeInput.toCodeVerification(oneWord);
+		Translate translate = new Translate();
+		actual = translate.toCodeVerification(oneWord);
 		
 		assertEquals(actual, expected);
 		
@@ -51,40 +51,29 @@ class TestTextToCode {
 
 	@Test
 	void testTextToCodeVerificationUnder500() {
-		String oneWord = "1234567890"; //46 chars long times 20 words = 920 chars.
+		String oneWord = "1234567890"; 
 		String textString = "";
 		for (int i = 0; i < 50; i++) {
 			textString = oneWord;
 		}
 		
-		Translate takeInput = new Translate();
-		textString = takeInput.toCodeVerification(textString);
+		Translate translate = new Translate();
+		textString = translate.toCodeVerification(textString);
 		
 		
 		assertNotEquals(textString, "error!");
 		
 	}
-	@Test
-	void testTextToCodeVerification() {
-		String textString = "sos"; //46 chars long times 20 words = 920 chars.
-		
-		
-		Translate takeInput = new Translate();
-		textString = takeInput.toCodeVerification(textString);
-		
-		
-		assertNotEquals(textString, "...---...");
-		
-	}
+	
 	void testTextToCodeVerificationOver500() {
-		String oneWord = "a"; //46 chars long times 20 words = 920 chars.
+		String oneWord = "a"; 
 		String textString = "";
 		for (int i = 0; i < 501; i++) {
 			textString = oneWord;
 		}
 		
-		Translate takeInput = new Translate();
-		textString = takeInput.toCodeVerification(textString);
+		Translate translate = new Translate();
+		textString = translate.toCodeVerification(textString);
 		
 		
 		assertEquals(textString, "error!");
@@ -94,8 +83,8 @@ class TestTextToCode {
 	void testTextToCodeVerificationNotEmpty() {
 		String textString = "";
 		
-		Translate takeInput = new Translate();
-		String returnString = takeInput.toCodeVerification(textString);
+		Translate translate = new Translate();
+		String returnString = translate.toCodeVerification(textString);
 		
 		assertEquals(returnString, "error!");
 		
@@ -105,7 +94,7 @@ class TestTextToCode {
 	void testTextToCodeOnlyEngLetters() {
 		
 		Translate takeInput = new Translate();
-		String textString = "";
+		String textString = "åäö";
 		
 		String returnString = takeInput.toCodeVerification(textString);
 		
