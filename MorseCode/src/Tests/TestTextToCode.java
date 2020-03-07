@@ -19,7 +19,6 @@ class TestTextToCode {
 		actual = takeInput.toCodeVerification(oneLetter);
 		
 		assertEquals(actual, expected);
-		
 	}
 	
 	@Test
@@ -32,7 +31,6 @@ class TestTextToCode {
 		actual = translate.toCodeVerification(oneWord);
 		
 		assertEquals(actual, expected);
-		
 	}
 	
 	@Test
@@ -45,40 +43,36 @@ class TestTextToCode {
 		actual = translate.toCodeVerification(oneWord);
 		
 		assertEquals(actual, expected);
-		
 	}
-
 
 	@Test
 	void testTextToCodeVerificationUnder500() {
 		String oneWord = "1234567890"; 
 		String textString = "";
-		for (int i = 0; i < 50; i++) {
-			textString = oneWord;
+		for (int i = 0; i < 49; i++) {
+			textString = textString + oneWord;
 		}
 		
 		Translate translate = new Translate();
 		textString = translate.toCodeVerification(textString);
 		
-		
-		assertNotEquals(textString, "error!");
-		
+		assertNotEquals("error!", textString);
 	}
 	
+	@Test
 	void testTextToCodeVerificationOver500() {
 		String oneWord = "a"; 
 		String textString = "";
 		for (int i = 0; i < 501; i++) {
-			textString = oneWord;
+			textString += oneWord;
 		}
 		
 		Translate translate = new Translate();
 		textString = translate.toCodeVerification(textString);
 		
-		
-		assertEquals(textString, "error!");
-		
+		assertEquals("error!" ,textString);
 	}
+	
 	@Test
 	void testTextToCodeVerificationNotEmpty() {
 		String textString = "";
@@ -87,7 +81,6 @@ class TestTextToCode {
 		String returnString = translate.toCodeVerification(textString);
 		
 		assertEquals(returnString, "error!");
-		
 	}
 	
 	@Test
@@ -99,7 +92,6 @@ class TestTextToCode {
 		String returnString = takeInput.toCodeVerification(textString);
 		
 		assertEquals(returnString, "error!");
-		
 	}
 
 }
