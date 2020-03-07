@@ -2,7 +2,7 @@ package Program;
 
 import java.util.Scanner;
 
-public class TakeInput {
+public class Translate {
 
 	char[] letters = {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 			'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
@@ -18,7 +18,9 @@ public class TakeInput {
 	
 	public String takeInput() {
 		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Skriv in nåt då!");
+		System.out.println(">");
 		String string = scan.nextLine();
 		string = string.toLowerCase();
 		System.out.println(string);
@@ -29,18 +31,20 @@ public class TakeInput {
 	
 	
 	
-	public String toCodeVerification(String textToVerify) {
+	public String toCodeVerification(String textToTranslate) {
 		String wrong = "error!";
 		String morseCode = "";
-		if (textToVerify.length() >= 500) {
+		//textToTranslate = "åä";
+		//Text får inte vara längre än 500 tecken.
+		if (textToTranslate.length() >= 500) {
 			return "error!"; 		
 		}
-		char[] ch = new char[textToVerify.length()];
-		for (int i = 0; i < textToVerify.length(); i++) { 
-            ch[i] = textToVerify.charAt(i); 
+		char[] ch = new char[textToTranslate.length()];
+		for (int i = 0; i < textToTranslate.length(); i++) { 
+            ch[i] = textToTranslate.charAt(i); 
         } 
 		//Kolla så String inte är tom
-		if (textToVerify.isEmpty()) {
+		if (textToTranslate.isEmpty()) {
 			
 			return "error!";
 		}
@@ -58,7 +62,7 @@ public class TakeInput {
 				return "error!";
 			}
 		}
-		System.out.println(textToVerify.length());
+		System.out.println(morseCode);
 		return morseCode;
 	}
 	

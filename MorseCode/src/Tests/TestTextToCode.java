@@ -1,11 +1,53 @@
 package Tests;
-import Program.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestInput {
+import Program.Translate;
+
+class TestTextToCode {
+	
+	@Test
+	void testSingleLetter() {
+		
+		String oneLetter = "s"; //46 chars long times 20 words = 920 chars.
+		String actual;
+		String expected = "... ";
+		
+		Translate takeInput = new Translate();
+		actual = takeInput.toCodeVerification(oneLetter);
+		
+		assertEquals(actual, expected);
+		
+	}
+	
+	@Test
+	void testOneWord() {
+		String oneWord = "sos"; //46 chars long times 20 words = 920 chars.
+		String actual;
+		String expected = "... --- ... ";
+		
+		Translate takeInput = new Translate();
+		actual = takeInput.toCodeVerification(oneWord);
+		
+		assertEquals(actual, expected);
+		
+	}
+	
+	@Test
+	void testOneSentence() {
+		String oneWord = "sos sos"; //46 chars long times 20 words = 920 chars.
+		String actual;
+		String expected = "... --- ...    ... --- ... ";
+		
+		Translate takeInput = new Translate();
+		actual = takeInput.toCodeVerification(oneWord);
+		
+		assertEquals(actual, expected);
+		
+	}
+
 
 	@Test
 	void testTextToCodeVerificationUnder500() {
@@ -15,7 +57,7 @@ class TestInput {
 			textString = oneWord;
 		}
 		
-		TakeInput takeInput = new TakeInput();
+		Translate takeInput = new Translate();
 		textString = takeInput.toCodeVerification(textString);
 		
 		
@@ -27,7 +69,7 @@ class TestInput {
 		String textString = "sos"; //46 chars long times 20 words = 920 chars.
 		
 		
-		TakeInput takeInput = new TakeInput();
+		Translate takeInput = new Translate();
 		textString = takeInput.toCodeVerification(textString);
 		
 		
@@ -41,7 +83,7 @@ class TestInput {
 			textString = oneWord;
 		}
 		
-		TakeInput takeInput = new TakeInput();
+		Translate takeInput = new Translate();
 		textString = takeInput.toCodeVerification(textString);
 		
 		
@@ -52,7 +94,7 @@ class TestInput {
 	void testTextToCodeVerificationNotEmpty() {
 		String textString = "";
 		
-		TakeInput takeInput = new TakeInput();
+		Translate takeInput = new Translate();
 		String returnString = takeInput.toCodeVerification(textString);
 		
 		assertEquals(returnString, "error!");
@@ -62,37 +104,13 @@ class TestInput {
 	@Test
 	void testTextToCodeOnlyEngLetters() {
 		
-		TakeInput takeInput = new TakeInput();
-		String textString = "()";
+		Translate takeInput = new Translate();
+		String textString = "";
 		
 		String returnString = takeInput.toCodeVerification(textString);
 		
 		assertEquals(returnString, "error!");
 		
 	}
-	
-	@Test
-	void testIfCodeIsValidOneChar() {
-		
-		TakeInput takeInput = new TakeInput();
-		String textString = "...";
-		
-		String returnString = takeInput.toTextVerification(textString);
-		
-		assertEquals(returnString, "s");
-		
-	}
-	@Test
-	void testIfCodeIsValidOneWord() {
-		
-		TakeInput takeInput = new TakeInput();
-		String textString = "... --- ...";
-		
-		String returnString = takeInput.toTextVerification(textString);
-		
-		assertEquals(returnString, "sos");
-		
-	}
 
-	
 }

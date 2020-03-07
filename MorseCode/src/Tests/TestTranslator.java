@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import Program.Translator;
+import Program.ToBeSlängd;
 
 class TestTranslator {
 	@Test
 	void ShouldReturnTrue_IfCorrectTranslate() {
 		
-		Translator translator = new Translator();
+		ToBeSlängd translator = new ToBeSlängd();
 		
 		String output1 = translator.charToMorse('o');
 		String expectedOutput1 = "---";

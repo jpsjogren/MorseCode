@@ -2,7 +2,7 @@ package Program;
 
 import java.util.Scanner;
 
-public class Translator {
+public class ToBeSlängd {
 	
 	char[] letters = {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 			'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',

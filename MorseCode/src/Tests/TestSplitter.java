@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import Program.Splitter;
-import Program.Translator;
+import Program.ToBeSlängd;
 
 class TestSplitter {
 
