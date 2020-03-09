@@ -128,11 +128,8 @@ public class Translate {
 	    	}
 	    	if (!wrong && morseLetterToTranslate[word].length > 1) {
 	    		output += " ";
-				
 			}
 		}
 		return output;
 	}
-
-	
 }
