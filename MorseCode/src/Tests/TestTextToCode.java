@@ -18,7 +18,7 @@ class TestTextToCode {
 		Translate takeInput = new Translate();
 		actual = takeInput.toCodeVerification(oneLetter);
 		
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 	
 	@Test
@@ -30,19 +30,18 @@ class TestTextToCode {
 		Translate translate = new Translate();
 		actual = translate.toCodeVerification(oneWord);
 		
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 	
 	@Test
 	void testOneSentence() {
 		String oneWord = "sos sos"; 
-		String actual;
 		String expected = "... --- ...    ... --- ... ";
 		
 		Translate translate = new Translate();
-		actual = translate.toCodeVerification(oneWord);
+		String actual = translate.toCodeVerification(oneWord);
 		
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -80,7 +79,7 @@ class TestTextToCode {
 		Translate translate = new Translate();
 		String returnString = translate.toCodeVerification(textString);
 		
-		assertEquals(returnString, "error!");
+		assertEquals("error!", returnString);
 	}
 	
 	@Test
@@ -91,7 +90,7 @@ class TestTextToCode {
 		
 		String returnString = takeInput.toCodeVerification(textString);
 		
-		assertEquals(returnString, "error!");
+		assertEquals("error!", returnString);
 	}
 
 }

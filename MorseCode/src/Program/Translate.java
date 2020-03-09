@@ -2,6 +2,7 @@ package Program;
 
 import java.util.Scanner;
 
+
 public class Translate {
 
 	char[] letters = {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
@@ -29,7 +30,6 @@ public class Translate {
 		
 		scan.close();
 		return string;
-	
 	}
 	
 	//För att slplitta upp morsekoden i sina respektive bokstäver.
@@ -47,45 +47,59 @@ public class Translate {
 		        
 		    }
 		return splitted;
+	}
+	
+	public String checkLenght(String toTest) {
 		
+		if (toTest.length() >= 500) {
+			return "error!"; }
+		else if (toTest.isEmpty()) {
+			return "error!"; }
+		return toTest;		
+	}
+	
+	public String errorMessage(String error) {
+
+		
+		return error;
 	}
 	
 	public String toCodeVerification(String textToTranslate) {
-		String wrong = "error!";
+		boolean wrong = true;
 		String morseCode = "";
 		
-		//Text får inte vara längre än 500 tecken.
-		if (textToTranslate.length() >= 500) {
-			return "error!"; 		
-		}
-		else if (textToTranslate.isEmpty()) {
-			
-			return "error!";
-		}
 		
-		//Gör om String to char array för att kunna översätta bokstav för bokstav.
-		char[] ch = new char[textToTranslate.length()];
-		for (int i = 0; i < textToTranslate.length(); i++) { 
-            ch[i] = textToTranslate.charAt(i); 
-        } 
+		textToTranslate = checkLenght(textToTranslate);
+		
+		char[] toTranslate = makeCharArray(textToTranslate);
 		
 		//Kolla så att det bara är tecken som kan översättas
-		for (int i = 0; i < ch.length; i++) {
+		for (int i = 0; i < toTranslate.length; i++) {
 			for (int j = 0; j < letters.length; j++) {
-				if (ch[i] == letters[j]) {
-					wrong = morseLetters[j];
+				if (toTranslate[i] == letters[j]) {
+					wrong = false;
 					morseCode += morseLetters[j] + " ";
 					break;
 				}
 			}
-			if (wrong.equals("error!")) {
-				return "error!";
+			if (wrong) {
+				return errorMessage("error!");
 			}
 		}
 		System.out.println(morseCode);
 		return morseCode;
 	}
 	
+	private char[] makeCharArray(String textToTranslate) {
+		
+		char[] ch = new char[textToTranslate.length()];
+		for (int i = 0; i < textToTranslate.length(); i++) { 
+            ch[i] = textToTranslate.charAt(i); 
+        }
+		
+		return ch;
+	}
+
 	public String toTextVerification(String codeToVerify) {
 		
 		boolean wrong = true;
@@ -119,4 +133,6 @@ public class Translate {
 		}
 		return output;
 	}
+
+	
 }
