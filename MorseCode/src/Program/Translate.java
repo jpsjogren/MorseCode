@@ -105,14 +105,7 @@ public class Translate {
 		boolean wrong = true;
 		String output = "";
 	
-		//Kolla så String inte är tom
-		if (codeToVerify.isEmpty()) {
-			
-			return "error!";
-		}
-		else if (codeToVerify.length() >= 500) {
-			return "error!";
-		}
+		codeToVerify = errorMessage(codeToVerify);
 		
 		String[][] morseLetterToTranslate = splitter(codeToVerify);
 		
