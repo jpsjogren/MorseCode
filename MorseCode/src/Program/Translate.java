@@ -68,6 +68,7 @@ public class Translate {
 		boolean wrong = true;
 		String morseCode = "";
 		
+		
 		textToTranslate = checkLength(textToTranslate);
 		
 		char[] toTranslate = makeCharArray(textToTranslate);
