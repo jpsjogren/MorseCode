@@ -6,7 +6,7 @@ public class Program {
 		// TODO Auto-generated method stub
 		
 		Translate input = new Translate();
-		input.takeInput();
+		input.takeInput("Tjo");
 		
 		
 	}
