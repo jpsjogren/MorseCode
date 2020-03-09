@@ -6,6 +6,8 @@ public class Program {
 		// TODO Auto-generated method stub
 		
 		Translate input = new Translate();
+		Menu menu = new Menu();
+		menu.Start();
 		input.takeInput("Tjo");
 		
 		
