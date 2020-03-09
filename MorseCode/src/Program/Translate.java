@@ -34,20 +34,23 @@ public class Translate {
 	public String toCodeVerification(String textToTranslate) {
 		String wrong = "error!";
 		String morseCode = "";
-		//textToTranslate = "åä";
+		
 		//Text får inte vara längre än 500 tecken.
 		if (textToTranslate.length() >= 500) {
 			return "error!"; 		
 		}
-		char[] ch = new char[textToTranslate.length()];
-		for (int i = 0; i < textToTranslate.length(); i++) { 
-            ch[i] = textToTranslate.charAt(i); 
-        } 
+		
 		//Kolla så String inte är tom
 		if (textToTranslate.isEmpty()) {
 			
 			return "error!";
 		}
+		
+		//Gör om String to char array för att kunna översätta bokstav för bokstav.
+		char[] ch = new char[textToTranslate.length()];
+		for (int i = 0; i < textToTranslate.length(); i++) { 
+            ch[i] = textToTranslate.charAt(i); 
+        } 
 		
 		//Kolla så att det bara är tecken som kan översättas
 		for (int i = 0; i < ch.length; i++) {
@@ -67,11 +70,10 @@ public class Translate {
 	}
 	
 	public String toTextVerification(String codeToVerify) {
-		String wrong = "error!";
+		
+		boolean wrong = true;
 		String output = "";
-		String[] stringSplit = codeToVerify.split(" ");
-		
-		
+		String source = codeToVerify;
 	
 		//Kolla så String inte är tom
 		if (codeToVerify.isEmpty()) {
@@ -79,20 +81,35 @@ public class Translate {
 			return "error!";
 		}
 		if (codeToVerify.length() >= 500) {
-			return "error!"; 		
-		}
-		
-		//Kolla så att det bara är tecken som kan översättas
-		for (int i = 0; i < stringSplit.length; i++) {
-			for (int j = 0; j < morseLetters.length; j++) {
-				if (stringSplit[i].equals(morseLetters[j])) {
-					wrong = letters[j] + "";
-					output += letters[j] + "";
-				}
-			}
-		}
-		if (wrong.equals("error!")) {
 			return "error!";
+		}
+		 // Första .split görs vid varje ord ('/'). 
+	    String [] sOuter = source.split("/"); 
+	    int size = sOuter.length;
+	    
+	    String [][] result = new String [size][]; 
+	    int count = 0;
+	    for (String line : sOuter)
+	    {
+	        result [count] = line.split(" ");
+	        ++count;
+	        
+	    }
+	    
+	    for (int word = 0; word < result.length; word++) {
+	    	for (int letter = 0; letter < result[word].length; letter++) {
+	    		for (int k = 0; k < morseLetters.length; k++) {
+			    	if (result[word][letter].equals(morseLetters[k])) {
+						wrong = false;
+						output += letters[k] + "";
+						break;
+					}
+	    		}
+	    	}
+	    	if (!wrong && result[word].length > 1) {
+	    		output += " ";
+				
+			}
 		}
 		return output;
 	}

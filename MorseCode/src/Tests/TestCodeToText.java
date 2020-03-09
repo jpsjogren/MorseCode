@@ -17,9 +17,10 @@ class TestCodeToText {
 		
 		String returnString = takeInput.toTextVerification(textString);
 		
-		assertEquals(returnString, "s");
+		assertEquals("s", returnString);
 		
 	}
+	
 	@Test
 	void testIfCodeIsValidOneWord() {
 		
@@ -28,9 +29,19 @@ class TestCodeToText {
 		
 		String returnString = takeInput.toTextVerification(textString);
 		
-		assertEquals(returnString, "sos");
+		assertEquals( "sos ", returnString);
 		
 	}
-
 	
+	@Test
+	void testCodeOneSentence() {
+		
+		Translate takeInput = new Translate();
+		String textString = "... --- .../... --- ...";
+		
+		String returnString = takeInput.toTextVerification(textString);
+		
+		assertEquals( "sos sos ", returnString);
+		
+	}
 }
