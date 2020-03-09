@@ -49,7 +49,7 @@ public class Translate {
 		return splitted;
 	}
 	
-	public String checkLenght(String toTest) {
+	public String checkLength(String toTest) {
 		
 		if (toTest.length() >= 500) {
 			return "error!"; }
@@ -69,7 +69,7 @@ public class Translate {
 		String morseCode = "";
 		
 		
-		textToTranslate = checkLenght(textToTranslate);
+		textToTranslate = checkLength(textToTranslate);
 		
 		char[] toTranslate = makeCharArray(textToTranslate);
 		
@@ -86,7 +86,6 @@ public class Translate {
 				return errorMessage("error!");
 			}
 		}
-		System.out.println(morseCode);
 		return morseCode;
 	}
 	
