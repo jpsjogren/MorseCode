@@ -76,9 +76,6 @@ public class Translate {
 					break;
 				}
 			}
-			if (wrong) {
-				return "error!";
-			}
 		}
 		 if (wrong || textToTranslate.equals("error!") || morseCode.equals("error!")) {
 				return "error!";
