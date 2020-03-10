@@ -15,7 +15,7 @@ class TestCodeToText {
 		Translate takeInput = new Translate();
 		String textString = "...";
 		
-		String returnString = takeInput.toTextVerification(textString);
+		String returnString = takeInput.codeToText(textString);
 		
 		assertEquals("s", returnString);
 		
@@ -27,7 +27,7 @@ class TestCodeToText {
 		Translate takeInput = new Translate();
 		String textString = "... --- ...";
 		
-		String returnString = takeInput.toTextVerification(textString);
+		String returnString = takeInput.codeToText(textString);
 		
 		assertEquals( "sos ", returnString);
 		
@@ -39,9 +39,44 @@ class TestCodeToText {
 		Translate takeInput = new Translate();
 		String textString = "... --- .../... --- ...";
 		
-		String returnString = takeInput.toTextVerification(textString);
+		String returnString = takeInput.codeToText(textString);
 		
 		assertEquals( "sos sos ", returnString);
 		
+	}
+	
+	@Test
+	void testCodeToTextOver500() {
+		String oneWord = "."; 
+		String textString = "";
+		for (int i = 0; i < 501; i++) {
+			textString += oneWord;
+		}
+		
+		Translate translate = new Translate();
+		textString = translate.codeToText(textString);
+		
+		assertEquals("error!" ,textString);
+	}
+	
+	@Test
+	void testCodeToTextNotEmpty() {
+		String textString = "";
+		
+		Translate translate = new Translate();
+		String returnString = translate.codeToText(textString);
+		
+		assertEquals("error!", returnString);
+	}
+	
+	@Test
+	void testCodeToTextOnlyValidLetters() {
+		
+		Translate takeInput = new Translate();
+		String textString = "............";
+		
+		String returnString = takeInput.codeToText(textString);
+		
+		assertEquals("error!", returnString);
 	}
 }

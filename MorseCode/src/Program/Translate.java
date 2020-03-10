@@ -57,17 +57,11 @@ public class Translate {
 			return "error!"; }
 		return toTest;		
 	}
-	
-	public String errorMessage(String error) {
 
-		
-		return error;
-	}
 	
-	public String toCodeVerification(String textToTranslate) {
+	public String textToCode(String textToTranslate) {
 		boolean wrong = true;
 		String morseCode = "";
-		
 		
 		textToTranslate = checkLength(textToTranslate);
 		
@@ -83,9 +77,13 @@ public class Translate {
 				}
 			}
 			if (wrong) {
-				return errorMessage("error!");
+				return "error!";
 			}
 		}
+		 if (wrong || textToTranslate.equals("error!") || morseCode.equals("error!")) {
+				return "error!";
+				
+			}
 		return morseCode;
 	}
 	
@@ -99,14 +97,15 @@ public class Translate {
 		return ch;
 	}
 
-	public String toTextVerification(String codeToVerify) {
+	public String codeToText(String codeToTranslate) {
+		//codeToTranslate = "";
 		
 		boolean wrong = true;
 		String output = "";
 	
-		codeToVerify = errorMessage(codeToVerify);
+		codeToTranslate = checkLength(codeToTranslate);
 		
-		String[][] morseLetterToTranslate = splitter(codeToVerify);
+		String[][] morseLetterToTranslate = splitter(codeToTranslate);
 		
 	    for (int word = 0; word < morseLetterToTranslate.length; word++) {
 	    	for (int letter = 0; letter < morseLetterToTranslate[word].length; letter++) {
@@ -121,6 +120,10 @@ public class Translate {
 	    	if (!wrong && morseLetterToTranslate[word].length > 1) {
 	    		output += " ";
 			}
+		}
+	    if (wrong || codeToTranslate.equals("error!") || output.equals("error!")) {
+			return "error!";
+			
 		}
 		return output;
 	}

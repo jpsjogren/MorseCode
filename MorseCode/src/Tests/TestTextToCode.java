@@ -12,11 +12,10 @@ class TestTextToCode {
 	void testSingleLetter() {
 		
 		String oneLetter = "s";
-		String actual;
 		String expected = "... ";
 		
 		Translate takeInput = new Translate();
-		actual = takeInput.toCodeVerification(oneLetter);
+		String actual = takeInput.textToCode(oneLetter);
 		
 		assertEquals(expected, actual);
 	}
@@ -28,7 +27,7 @@ class TestTextToCode {
 		String expected = "... --- ... ";
 		
 		Translate translate = new Translate();
-		actual = translate.toCodeVerification(oneWord);
+		actual = translate.textToCode(oneWord);
 		
 		assertEquals(expected, actual);
 	}
@@ -39,7 +38,7 @@ class TestTextToCode {
 		String expected = "... --- ...    ... --- ... ";
 		
 		Translate translate = new Translate();
-		String actual = translate.toCodeVerification(oneWord);
+		String actual = translate.textToCode(oneWord);
 		
 		assertEquals(expected, actual);
 	}
@@ -53,7 +52,7 @@ class TestTextToCode {
 		}
 		
 		Translate translate = new Translate();
-		textString = translate.toCodeVerification(textString);
+		textString = translate.textToCode(textString);
 		
 		assertNotEquals("error!", textString);
 	}
@@ -67,7 +66,7 @@ class TestTextToCode {
 		}
 		
 		Translate translate = new Translate();
-		textString = translate.toCodeVerification(textString);
+		textString = translate.textToCode(textString);
 		
 		assertEquals("error!" ,textString);
 	}
@@ -77,7 +76,7 @@ class TestTextToCode {
 		String textString = "";
 		
 		Translate translate = new Translate();
-		String returnString = translate.toCodeVerification(textString);
+		String returnString = translate.textToCode(textString);
 		
 		assertEquals("error!", returnString);
 	}
@@ -88,7 +87,7 @@ class TestTextToCode {
 		Translate takeInput = new Translate();
 		String textString = "åäö";
 		
-		String returnString = takeInput.toCodeVerification(textString);
+		String returnString = takeInput.textToCode(textString);
 		
 		assertEquals("error!", returnString);
 	}
