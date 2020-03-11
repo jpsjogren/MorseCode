@@ -1,13 +1,7 @@
 package Tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.awt.Menu;
-
-import org.junit.jupiter.api.Test;
-
 class TestMenyChoice {
-
+/*
 	@Test
 	void testValidInput() {
 		Menu menu = new Menu();
@@ -16,5 +10,5 @@ class TestMenyChoice {
 		menu.choose(choice);
 		
 	}
-
+*/
 }

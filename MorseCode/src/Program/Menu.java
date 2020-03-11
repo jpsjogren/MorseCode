@@ -54,7 +54,7 @@ public class Menu {
 			System.out.println("Not a number! Try again.");
 			menuControl();
 		}
-		
+		scanner.close();
 	}
 	public static void Shutdown() throws InterruptedException {
 		System.out.print("Shutting down...");
@@ -69,6 +69,8 @@ public class Menu {
 		String userInputMorse = scanner.nextLine();
 		String outputText = userTranslate.codeToText(userInputMorse);
 		System.out.println("Result: \n" + outputText);
+		
+		scanner.close();
 	}
 	public static void initializeTextToMorse() {
 		Scanner scanner = new Scanner(System.in);
@@ -78,6 +80,8 @@ public class Menu {
 		String userInputText = scanner.nextLine();
 		String outputMorse = userTranslate.textToCode(userInputText);
 		System.out.println("Result: \n" + outputMorse);
+		
+		scanner.close();
 	}
 	public static void showHelp() {
 		// TODO Auto-generated method stub
@@ -92,6 +96,6 @@ public class Menu {
 		System.out.println("");
 		System.out.println("To translate text to Morse just type as normal.");
 		System.out.println("It's not possible to translate longer than 500 characters at a time.");
-
+		
 	}
 }
