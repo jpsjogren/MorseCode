@@ -15,46 +15,40 @@ public class Menu {
 		System.out.println("3: Help -------------------------------");
 		System.out.println("4: Exit -------------------------------");
 		System.out.println("---------------------------------------");
+		
 		menuControl();
 		}
 	public static void menuControl() throws InterruptedException {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Press the digit corresponding to your choice, then press enter");
-		int input;
+		int input = scanner.nextInt();
+			
+		switch(input) {
+		case 1:
+			initializeMorseToText();
+			Thread.sleep(3000);
+			showStart();
+			break;
 		
-		if(scanner.hasNextInt()) {
-			input = scanner.nextInt();
+		case 2: 
+			initializeTextToMorse();
+			Thread.sleep(3000);
+			showStart();
+			break;
+		case 3:
+			showHelp();
+			Thread.sleep(3000);
+			showStart();
+			break;
+		case 4:
+			Shutdown();
+			break;
+		default:
+			System.out.println("Invalid, try again.");
+			Thread.sleep(1000);
+			showStart();
 			
-			switch(input) {
-			case 1:
-				initializeMorseToText();
-				Thread.sleep(3000);
-				showStart();
-				break;
-			
-			case 2: 
-				initializeTextToMorse();
-				Thread.sleep(3000);
-				showStart();
-				break;
-			case 3:
-				showHelp();
-				Thread.sleep(3000);
-				showStart();
-				break;
-			case 4:
-				Shutdown();
-				break;
-			default:
-				System.out.println("Invalid, try again.");
-				menuControl();
-			}
 		}
-		else {
-			System.out.println("Not a number! Try again.");
-			menuControl();
-		}
-		scanner.close();
 	}
 	public static void Shutdown() throws InterruptedException {
 		System.out.print("Shutting down...");
@@ -70,7 +64,7 @@ public class Menu {
 		String outputText = userTranslate.codeToText(userInputMorse);
 		System.out.println("Result: \n" + outputText);
 		
-		scanner.close();
+		
 	}
 	public static void initializeTextToMorse() {
 		Scanner scanner = new Scanner(System.in);
@@ -81,7 +75,7 @@ public class Menu {
 		String outputMorse = userTranslate.textToCode(userInputText);
 		System.out.println("Result: \n" + outputMorse);
 		
-		scanner.close();
+		
 	}
 	public static void showHelp() {
 		// TODO Auto-generated method stub
