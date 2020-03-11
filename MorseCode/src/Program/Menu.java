@@ -20,31 +20,41 @@ public class Menu {
 	public static void menuControl() throws InterruptedException {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Press the digit corresponding to your choice, then press enter");
-		int input = scanner.nextInt();
-		switch(input) {
-		case 1:
-			initializeMorseToText();
-			Thread.sleep(3000);
-			showStart();
-			break;
+		int input;
 		
-		case 2: 
-			initializeTextToMorse();
-			Thread.sleep(3000);
-			showStart();
-			break;
-		case 3:
-			showHelp();
-			Thread.sleep(3000);
-			showStart();
-			break;
-		case 4:
-			Shutdown();
-			break;
-		default:
-			System.out.println("Invalid, try again.");
-			showStart();
+		if(scanner.hasNextInt()) {
+			input = scanner.nextInt();
+			
+			switch(input) {
+			case 1:
+				initializeMorseToText();
+				Thread.sleep(3000);
+				showStart();
+				break;
+			
+			case 2: 
+				initializeTextToMorse();
+				Thread.sleep(3000);
+				showStart();
+				break;
+			case 3:
+				showHelp();
+				Thread.sleep(3000);
+				showStart();
+				break;
+			case 4:
+				Shutdown();
+				break;
+			default:
+				System.out.println("Invalid, try again.");
+				menuControl();
+			}
 		}
+		else {
+			System.out.println("Not a number! Try again.");
+			menuControl();
+		}
+		
 	}
 	public static void Shutdown() throws InterruptedException {
 		System.out.print("Shutting down...");
