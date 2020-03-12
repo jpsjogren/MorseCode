@@ -50,8 +50,13 @@ public class Menu {
 	}
 	
 	public static void Shutdown() throws InterruptedException {
-		System.out.print("Shutting down...");
-		Thread.sleep(2000);
+		System.out.print("Shutting down");
+		Thread.sleep(200);
+		System.out.print(".");
+		Thread.sleep(200);
+		System.out.print(".");
+		Thread.sleep(200);
+		System.out.print(".");
 		System.exit(0);
 	}
 	
