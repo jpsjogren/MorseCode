@@ -18,10 +18,10 @@ public class Menu {
 		System.out.println(">");
 	}
 	public static void menuControl() throws InterruptedException {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Press the digit corresponding to your choice, then press enter");
 		String input;
 		boolean cont = true;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Press the digit corresponding to your choice, then press enter");
 		
 		do {
 			showStart();
@@ -50,12 +50,15 @@ public class Menu {
 				menuControl();
 			}
 		}while (cont);
+		scanner.close();
 	}
+	
 	public static void Shutdown() throws InterruptedException {
 		System.out.print("Shutting down...");
 		Thread.sleep(2000);
 		System.exit(0);
 	}
+	
 	public static void initializeMorseToText() {
 		Scanner scanner = new Scanner(System.in);
 		Translate userTranslate = new Translate();
@@ -67,6 +70,7 @@ public class Menu {
 		
 		scanner.close();
 	}
+	
 	public static void initializeTextToMorse() {
 		Scanner scanner = new Scanner(System.in);
 		Translate userTranslate = new Translate();
@@ -78,8 +82,8 @@ public class Menu {
 		
 		scanner.close();
 	}
+	
 	public static void showHelp() {
-		// TODO Auto-generated method stub
 		System.out.println("Welcome to our translator!");
 		System.out.println("");
 		System.out.println("If you want to translate Morse to Text use the following system");
@@ -91,6 +95,5 @@ public class Menu {
 		System.out.println("");
 		System.out.println("To translate text to Morse just type as normal.");
 		System.out.println("It's not possible to translate longer than 500 characters at a time.");
-		
 	}
 }
