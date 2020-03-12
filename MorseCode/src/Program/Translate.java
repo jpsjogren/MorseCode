@@ -65,7 +65,7 @@ public class Translate {
 				}
 			}
 		}
-		if ( countChars < textToTranslate.length() || textToTranslate.equals("error!") || morseCode.equals("error!")) {
+		if ( countChars < textToTranslate.length() || textToTranslate.equals("error!")) {
 				return "Error! Check that you only entered english letters.";
 				
 		}
@@ -85,23 +85,23 @@ public class Translate {
 	    	for (int letter = 0; letter < morseLetterToTranslate[word].length; letter++) {
 	    		for (int k = 0; k < morseLetters.length; k++) {
 			    	if (morseLetterToTranslate[word][letter].equals(morseLetters[k])) {
-			    		wrong = true;
-						countChar++;
+			    		wrong = false;
 						output += letters[k] + "";
 						break;
 					}
 	    		}
+	    		if (wrong) {
+					return "Error! Check that only valid Morsecode is entered";
+				}
 	    	}
-	    	if (!wrong && morseLetterToTranslate[word].length > 1) {
+	    	if (!wrong) {
 	    		output += " ";
 			}
 		}
-	    for (int i = 0; i < morseLetterToTranslate.length; i++) {
-		    if ( countChar < morseLetterToTranslate[i].length || codeToTranslate.equals("error!") || output.equals("error!")) {
+		    if (codeToTranslate.equals("error!")) {
 				return "Error! Check that only valid Morsecode is entered";
-				
 			}
-	    }
+	    
 		return output;
 	}
 }

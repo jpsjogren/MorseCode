@@ -54,7 +54,7 @@ class TestTextToCode {
 		Translate translate = new Translate();
 		textString = translate.textToCode(textString);
 		
-		assertNotEquals("error!", textString);
+		assertNotEquals("Error! Check that you only entered english letters.", textString);
 	}
 	
 	@Test
@@ -68,7 +68,7 @@ class TestTextToCode {
 		Translate translate = new Translate();
 		textString = translate.textToCode(textString);
 		
-		assertEquals("error!" ,textString);
+		assertEquals("Error! Check that you only entered english letters." ,textString);
 	}
 	
 	@Test
@@ -78,18 +78,18 @@ class TestTextToCode {
 		Translate translate = new Translate();
 		String returnString = translate.textToCode(textString);
 		
-		assertEquals("error!", returnString);
+		assertEquals("Error! Check that you only entered english letters.", returnString);
 	}
 	
 	@Test
 	void testTextToCodeOnlyEngLetters() {
 		
 		Translate takeInput = new Translate();
-		String textString = "åäö";
+		String textString = "å a ö";
 		
 		String returnString = takeInput.textToCode(textString);
 		
-		assertEquals("error!", returnString);
+		assertEquals("Error! Check that you only entered english letters.", returnString);
 	}
 
 }

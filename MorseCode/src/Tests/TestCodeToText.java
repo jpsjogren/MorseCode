@@ -17,7 +17,7 @@ class TestCodeToText {
 		
 		String returnString = takeInput.codeToText(textString);
 		
-		assertEquals("s", returnString);
+		assertEquals("s ", returnString);
 		
 	}
 	
@@ -56,7 +56,7 @@ class TestCodeToText {
 		Translate translate = new Translate();
 		textString = translate.codeToText(textString);
 		
-		assertEquals("error!" ,textString);
+		assertEquals("Error! Check that only valid Morsecode is entered" ,textString);
 	}
 	
 	@Test
@@ -66,17 +66,17 @@ class TestCodeToText {
 		Translate translate = new Translate();
 		String returnString = translate.codeToText(textString);
 		
-		assertEquals("error!", returnString);
+		assertEquals("Error! Check that only valid Morsecode is entered", returnString);
 	}
 	
 	@Test
 	void testCodeToTextOnlyValidLetters() {
 		
 		Translate takeInput = new Translate();
-		String textString = "............";
+		String textString = "............ ...";
 		
 		String returnString = takeInput.codeToText(textString);
 		
-		assertEquals("error!", returnString);
+		assertEquals("Error! Check that only valid Morsecode is entered", returnString);
 	}
 }
