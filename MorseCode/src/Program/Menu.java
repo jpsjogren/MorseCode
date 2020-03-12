@@ -78,6 +78,7 @@ public class Menu {
 		
 		System.out.println("Enter the text you want to translate: ");
 		String userInputText = scanner.nextLine();
+		userInputText = userInputText.toLowerCase();
 		String outputMorse = userTranslate.textToCode(userInputText);
 		System.out.println("Result: \n" + outputMorse);
 	}
