@@ -15,6 +15,7 @@ public class Menu {
 		System.out.println("4: Exit -------------------------------");
 		System.out.println(">");
 	}
+	
 	public static void menuControl() throws InterruptedException {
 		String input;
 		boolean cont = true;
@@ -45,7 +46,7 @@ public class Menu {
 			default:
 				System.out.println("Invalid, try again.");
 			}
-		}while (cont);
+		} while (cont);
 		scanner.close();
 	}
 	
@@ -68,8 +69,6 @@ public class Menu {
 		String userInputMorse = scanner.nextLine();
 		String outputText = userTranslate.codeToText(userInputMorse);
 		System.out.println("Result: \n" + outputText);
-		
-		
 	}
 	
 	public static void initializeTextToMorse() {
@@ -80,8 +79,6 @@ public class Menu {
 		String userInputText = scanner.nextLine();
 		String outputMorse = userTranslate.textToCode(userInputText);
 		System.out.println("Result: \n" + outputMorse);
-		
-		
 	}
 	
 	public static void showHelp() {
