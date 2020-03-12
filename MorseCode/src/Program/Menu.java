@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class Menu {
 	
-	
-	
 	public static void showStart() throws InterruptedException {
 		System.out.println("-- Welcome to the Dih-Dah-Translator --");
 		System.out.println("---------------------------------------");
@@ -31,7 +29,6 @@ public class Menu {
 			case "1":
 				initializeMorseToText();
 				Thread.sleep(3000);
-				
 				break;
 			case "2": 
 				initializeTextToMorse();
@@ -67,7 +64,7 @@ public class Menu {
 		String outputText = userTranslate.codeToText(userInputMorse);
 		System.out.println("Result: \n" + outputText);
 		
-		scanner.close();
+		//scanner.close();
 	}
 	
 	public static void initializeTextToMorse() {
@@ -79,7 +76,7 @@ public class Menu {
 		String outputMorse = userTranslate.textToCode(userInputText);
 		System.out.println("Result: \n" + outputMorse);
 		
-		scanner.close();
+		//scanner.close();
 	}
 	
 	public static void showHelp() {

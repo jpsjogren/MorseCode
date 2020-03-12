@@ -77,10 +77,10 @@ public class Translate {
 				}
 			}
 		}
-		 if (wrong || textToTranslate.equals("error!") || morseCode.equals("error!")) {
-				return "error!";
+		if ( wrong || textToTranslate.equals("error!") || morseCode.equals("error!")) {
+				return "Error! Check that you only entered english letters.";
 				
-			}
+		}
 		return morseCode;
 	}
 	
@@ -118,8 +118,8 @@ public class Translate {
 	    		output += " ";
 			}
 		}
-	    if (wrong || codeToTranslate.equals("error!") || output.equals("error!")) {
-			return "error!";
+	    if ( wrong || codeToTranslate.equals("error!") || output.equals("error!")) {
+			return "Error! Check that only valid Morsecode is entered";
 			
 		}
 		return output;
