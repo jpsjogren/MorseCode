@@ -28,6 +28,7 @@ public class Translate {
 		return splitted;
 	}
 	
+	//Gör om String till char array för att lättare jämföra och översätta
 	private char[] makeCharArray(String textToTranslate) {
 		
 		char[] ch = new char[textToTranslate.length()];
@@ -38,6 +39,7 @@ public class Translate {
 		return ch;
 	}
 	
+	//Ser till så att man inte matar in tom text eller för lång
 	private String checkLength(String toTest) {
 		
 		if (toTest.length() >= 500) {
@@ -47,6 +49,7 @@ public class Translate {
 		return toTest;		
 	}
 
+	//Översätter texten till morsekod om det är möjligt.
 	public String textToCode(String textToTranslate) {
 		String morseCode = "";
 		int countChars = 0;
@@ -72,6 +75,7 @@ public class Translate {
 		return morseCode;
 	}
 
+	//Översätter morsekod till text om det är möjligt
 	public String codeToText(String codeToTranslate) {
 		int countChar = 0;
 		String output = "";
