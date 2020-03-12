@@ -64,7 +64,7 @@ public class Menu {
 		String outputText = userTranslate.codeToText(userInputMorse);
 		System.out.println("Result: \n" + outputText);
 		
-		//scanner.close();
+		
 	}
 	
 	public static void initializeTextToMorse() {
@@ -76,7 +76,7 @@ public class Menu {
 		String outputMorse = userTranslate.textToCode(userInputText);
 		System.out.println("Result: \n" + outputMorse);
 		
-		//scanner.close();
+		
 	}
 	
 	public static void showHelp() {

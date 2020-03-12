@@ -75,6 +75,9 @@ public class Translate {
 					morseCode += morseLetters[j] + " ";
 					break;
 				}
+				else {
+		    		wrong = true;
+		    	}
 			}
 		}
 		if ( wrong || textToTranslate.equals("error!") || morseCode.equals("error!")) {
@@ -112,6 +115,9 @@ public class Translate {
 						output += letters[k] + "";
 						break;
 					}
+			    	else {
+			    		wrong = true;
+			    	}
 	    		}
 	    	}
 	    	if (!wrong && morseLetterToTranslate[word].length > 1) {
