@@ -2,6 +2,7 @@ package Program;
 
 import java.util.Scanner;
 
+
 public class Menu {
 	
 	
@@ -14,47 +15,41 @@ public class Menu {
 		System.out.println("2: Text to morse ----------------------");
 		System.out.println("3: Help -------------------------------");
 		System.out.println("4: Exit -------------------------------");
-		System.out.println("---------------------------------------");
-		menuControl();
-		}
+		System.out.println(">");
+	}
 	public static void menuControl() throws InterruptedException {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Press the digit corresponding to your choice, then press enter");
-		int input;
+		String input;
+		boolean cont = true;
 		
-		if(scanner.hasNextInt()) {
-			input = scanner.nextInt();
+		do {
+			showStart();
+			input = scanner.nextLine();
 			
 			switch(input) {
-			case 1:
+			case "1":
 				initializeMorseToText();
 				Thread.sleep(3000);
-				showStart();
+				
 				break;
-			
-			case 2: 
+			case "2": 
 				initializeTextToMorse();
 				Thread.sleep(3000);
-				showStart();
 				break;
-			case 3:
+			case "3":
 				showHelp();
 				Thread.sleep(3000);
-				showStart();
 				break;
-			case 4:
+			case "4":
 				Shutdown();
+				cont = false;
 				break;
 			default:
 				System.out.println("Invalid, try again.");
 				menuControl();
 			}
-		}
-		else {
-			System.out.println("Not a number! Try again.");
-			menuControl();
-		}
-		scanner.close();
+		}while (cont);
 	}
 	public static void Shutdown() throws InterruptedException {
 		System.out.print("Shutting down...");
