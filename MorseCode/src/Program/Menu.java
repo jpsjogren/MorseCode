@@ -14,6 +14,7 @@ public class Menu {
 		System.out.println("3: Help -------------------------------");
 		System.out.println("4: Exit -------------------------------");
 		System.out.println(">");
+		
 	}
 	
 	public static void menuControl() throws InterruptedException {
