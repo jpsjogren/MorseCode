@@ -47,7 +47,6 @@ public class Menu {
 				break;
 			default:
 				System.out.println("Invalid, try again.");
-				menuControl();
 			}
 		}while (cont);
 		scanner.close();
