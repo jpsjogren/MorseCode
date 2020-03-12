@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Menu {
 	
 	public static void showStart() throws InterruptedException {
+		System.out.println("");
 		System.out.println("-- Welcome to the Dih-Dah-Translator --");
 		System.out.println("");
 		System.out.println("Would you like to translate: ----------");
@@ -13,7 +14,7 @@ public class Menu {
 		System.out.println("2: Text to morse ----------------------");
 		System.out.println("3: Help -------------------------------");
 		System.out.println("4: Exit -------------------------------");
-		System.out.println(">");
+		System.out.print(">");
 		
 	}
 	
@@ -67,6 +68,7 @@ public class Menu {
 		Translate userTranslate = new Translate();
 		
 		System.out.println("Enter the morse code you want to translate: ");
+		System.out.print(">");
 		String userInputMorse = scanner.nextLine();
 		String outputText = userTranslate.codeToText(userInputMorse);
 		System.out.println("Result: \n" + outputText);
@@ -77,6 +79,7 @@ public class Menu {
 		Translate userTranslate = new Translate();
 		
 		System.out.println("Enter the text you want to translate: ");
+		System.out.print(">");
 		String userInputText = scanner.nextLine();
 		userInputText = userInputText.toLowerCase();
 		String outputMorse = userTranslate.textToCode(userInputText);
