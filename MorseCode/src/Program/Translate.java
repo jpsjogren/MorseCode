@@ -1,8 +1,5 @@
 package Program;
 
-import java.util.Scanner;
-
-
 public class Translate {
 
 	char[] letters = {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
@@ -16,8 +13,6 @@ public class Translate {
 			 ".----", "..---", "...--", "....-",
 			 ".....", "-....", "--...", "---..", "----.",
 			 "-----",".-.-.-","--..--","..--.."};
-	
-
 	
 	//För att slplitta upp morsekoden i sina respektive bokstäver.
 	public String[][] splitter(String toSplit) {
@@ -45,7 +40,6 @@ public class Translate {
 		return toTest;		
 	}
 
-	
 	public String textToCode(String textToTranslate) {
 		boolean wrong = true;
 		String morseCode = "";
