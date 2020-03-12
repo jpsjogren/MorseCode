@@ -17,8 +17,6 @@ public class Translate {
 			 ".....", "-....", "--...", "---..", "----.",
 			 "-----",".-.-.-","--..--","..--.."};
 	
-	
-	
 	//Ta in input från avändaren. 
 	public String takeInput(String message) {
 		Scanner scan = new Scanner(System.in);
