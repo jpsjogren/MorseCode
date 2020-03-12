@@ -17,18 +17,7 @@ public class Translate {
 			 ".....", "-....", "--...", "---..", "----.",
 			 "-----",".-.-.-","--..--","..--.."};
 	
-	//Ta in input från avändaren. 
-	public String takeInput(String message) {
-		Scanner scan = new Scanner(System.in);
-		
-		System.out.println(message);
-		System.out.println(">");
-		String string = scan.nextLine();
-		string = string.toLowerCase();
-		
-		scan.close();
-		return string;
-	}
+
 	
 	//För att slplitta upp morsekoden i sina respektive bokstäver.
 	public String[][] splitter(String toSplit) {
