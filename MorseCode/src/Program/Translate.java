@@ -28,43 +28,6 @@ public class Translate {
 		return splitted;
 	}
 	
-	public String checkLength(String toTest) {
-		
-		if (toTest.length() >= 500) {
-			return "error!"; }
-		else if (toTest.isEmpty()) {
-			return "error!"; }
-		return toTest;		
-	}
-
-	public String textToCode(String textToTranslate) {
-		boolean wrong = true;
-		String morseCode = "";
-		
-		textToTranslate = checkLength(textToTranslate);
-		
-		char[] toTranslate = makeCharArray(textToTranslate);
-		
-		//Kolla så att det bara är tecken som kan översättas
-		for (int i = 0; i < toTranslate.length; i++) {
-			for (int j = 0; j < letters.length; j++) {
-				if (toTranslate[i] == letters[j]) {
-					wrong = false;
-					morseCode += morseLetters[j] + " ";
-					break;
-				}
-				else {
-		    		wrong = true;
-		    	}
-			}
-		}
-		if ( wrong || textToTranslate.equals("error!") || morseCode.equals("error!")) {
-				return "Error! Check that you only entered english letters.";
-				
-		}
-		return morseCode;
-	}
-	
 	private char[] makeCharArray(String textToTranslate) {
 		
 		char[] ch = new char[textToTranslate.length()];
@@ -74,12 +37,45 @@ public class Translate {
 		
 		return ch;
 	}
+	
+	private String checkLength(String toTest) {
+		
+		if (toTest.length() >= 500) {
+			return "error!"; }
+		else if (toTest.isEmpty()) {
+			return "error!"; }
+		return toTest;		
+	}
+
+	public String textToCode(String textToTranslate) {
+		String morseCode = "";
+		int countChars = 0;
+		
+		textToTranslate = checkLength(textToTranslate);
+		
+		char[] toTranslate = makeCharArray(textToTranslate);
+		
+		//Kolla så att det bara är tecken som kan översättas
+		for (int i = 0; i < toTranslate.length; i++) {
+			for (int j = 0; j < letters.length; j++) {
+				if (toTranslate[i] == letters[j]) {
+					morseCode += morseLetters[j] + " ";
+					countChars++;
+					break;
+				}
+			}
+		}
+		if ( countChars < textToTranslate.length() || textToTranslate.equals("error!") || morseCode.equals("error!")) {
+				return "Error! Check that you only entered english letters.";
+				
+		}
+		return morseCode;
+	}
 
 	public String codeToText(String codeToTranslate) {
-		//codeToTranslate = "";
-		
-		boolean wrong = true;
+		int countChar = 0;
 		String output = "";
+		boolean wrong = true;
 	
 		codeToTranslate = checkLength(codeToTranslate);
 		
@@ -89,23 +85,23 @@ public class Translate {
 	    	for (int letter = 0; letter < morseLetterToTranslate[word].length; letter++) {
 	    		for (int k = 0; k < morseLetters.length; k++) {
 			    	if (morseLetterToTranslate[word][letter].equals(morseLetters[k])) {
-						wrong = false;
+			    		wrong = true;
+						countChar++;
 						output += letters[k] + "";
 						break;
 					}
-			    	else {
-			    		wrong = true;
-			    	}
 	    		}
 	    	}
 	    	if (!wrong && morseLetterToTranslate[word].length > 1) {
 	    		output += " ";
 			}
 		}
-	    if ( wrong || codeToTranslate.equals("error!") || output.equals("error!")) {
-			return "Error! Check that only valid Morsecode is entered";
-			
-		}
+	    for (int i = 0; i < morseLetterToTranslate.length; i++) {
+		    if ( countChar < morseLetterToTranslate[i].length || codeToTranslate.equals("error!") || output.equals("error!")) {
+				return "Error! Check that only valid Morsecode is entered";
+				
+			}
+	    }
 		return output;
 	}
 }
