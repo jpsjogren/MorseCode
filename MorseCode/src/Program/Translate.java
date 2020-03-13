@@ -77,7 +77,6 @@ public class Translate {
 
 	//Översätter morsekod till text om det är möjligt
 	public String codeToText(String codeToTranslate) {
-		int countChar = 0;
 		String output = "";
 		boolean wrong = true;
 	
@@ -85,10 +84,10 @@ public class Translate {
 		
 		String[][] morseLetterToTranslate = splitter(codeToTranslate);
 		
-	    for (int word = 0; word < morseLetterToTranslate.length; word++) {
-	    	for (int letter = 0; letter < morseLetterToTranslate[word].length; letter++) {
-	    		for (int k = 0; k < morseLetters.length; k++) {
-			    	if (morseLetterToTranslate[word][letter].equals(morseLetters[k])) {
+	    for (int word = 0; word < morseLetterToTranslate.length; word++) {					//Går igenom ord för ord
+	    	for (int letter = 0; letter < morseLetterToTranslate[word].length; letter++) {	//Går i genom "bokstäverna"		
+	    		for (int k = 0; k < morseLetters.length; k++) {								//Går igenommorsealfabetet
+			    	if (morseLetterToTranslate[word][letter].equals(morseLetters[k])) {		//Jämför morsealfabetet med inmatad bokstav
 			    		wrong = false;
 						output += letters[k] + "";
 						break;
